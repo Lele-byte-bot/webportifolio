@@ -15,46 +15,39 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
         }
 
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 2rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        nav {
+        header nav {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
             padding: 0 2rem;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
         }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
+        header a {
             color: white;
             text-decoration: none;
+            margin-left: 2rem;
             transition: opacity 0.3s;
         }
 
-        nav a:hover {
+        header a:hover {
             opacity: 0.8;
         }
 
@@ -66,13 +59,14 @@
 
         .hero {
             text-align: center;
-            padding: 3rem 0;
+            margin-bottom: 4rem;
+            color: #333;
         }
 
-        .hero h1 {
+        .hero h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #333;
+            color: #667eea;
         }
 
         .hero p {
@@ -84,64 +78,78 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin: 3rem 0;
+            margin-bottom: 3rem;
         }
 
         .service-card {
             background: white;
-            padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid #667eea;
+            border-left: 5px solid #667eea;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
-        .service-card h2 {
+        .service-card h3 {
             color: #667eea;
-            margin-bottom: 1rem;
             font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-right: 0.5rem;
         }
 
         .service-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .service-features {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-features li {
-            padding: 0.5rem 0;
             color: #555;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
         }
 
-        .service-features li:before {
-            content: "✓";
-            color: #667eea;
-            font-weight: bold;
-            font-size: 1.2rem;
+        .service-details {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .service-details ul {
+            list-style-position: inside;
+            margin: 0.5rem 0 0 0;
+        }
+
+        .service-details li {
+            margin: 0.3rem 0;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
         }
 
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 5px;
             text-decoration: none;
+            margin-top: 1rem;
             transition: opacity 0.3s;
             border: none;
             cursor: pointer;
@@ -152,41 +160,22 @@
             opacity: 0.9;
         }
 
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        footer a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
         @media (max-width: 768px) {
-            nav ul {
+            header nav {
+                flex-direction: column;
                 gap: 1rem;
-                font-size: 0.9rem;
             }
 
-            .hero h1 {
+            header a {
+                margin-left: 0;
+            }
+
+            .hero h2 {
                 font-size: 1.8rem;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
             }
         }
     </style>
@@ -194,95 +183,179 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Lele Byte Bot</div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+            <h1>Lele Byte Bot</h1>
+            <div>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </nav>
     </header>
 
-    <main>
-        <div class="container">
-            <section class="hero">
-                <h1>Professional Services</h1>
-                <p>Leveraging expertise in technology, community building, and thought leadership to drive meaningful conversations and foster innovation</p>
-            </section>
+    <div class="container">
+        <section class="hero">
+            <h2>Services</h2>
+            <p>Comprehensive technology and consulting solutions tailored to your business needs. From cybersecurity to digital innovation, I deliver expertise across multiple domains.</p>
+        </section>
 
-            <section class="services-grid">
-                <!-- Tech Advocacy Service -->
-                <div class="service-card">
-                    <div class="icon">💡</div>
-                    <h2>Tech Advocacy</h2>
-                    <p>Championing innovation and best practices in technology to drive positive change within organizations and communities. Promoting inclusive tech culture and advocating for emerging technologies.</p>
-                    <ul class="service-features">
-                        <li>Technology trend analysis and insights</li>
-                        <li>Promoting inclusive tech practices</li>
-                        <li>Advocating for emerging technologies</li>
-                        <li>Building tech communities</li>
-                        <li>Knowledge sharing and mentorship</li>
-                        <li>Strategic technology recommendations</li>
+        <section class="services-grid">
+            <!-- Service 1: Cybersecurity Solutions -->
+            <div class="service-card">
+                <h3><span class="service-icon">🔐</span>Cybersecurity Solutions</h3>
+                <p>Comprehensive cybersecurity services designed to protect your digital assets and infrastructure from evolving threats.</p>
+                <div class="service-details">
+                    <strong>Key Services:</strong>
+                    <ul>
+                        <li>Security assessments and vulnerability analysis</li>
+                        <li>Threat detection and incident response</li>
+                        <li>Security architecture design</li>
+                        <li>Penetration testing and security audits</li>
+                        <li>Risk management and mitigation strategies</li>
                     </ul>
-                    <a href="contact.html" class="cta-button">Get Started</a>
                 </div>
+            </div>
 
-                <!-- Paneling & Speaking Service -->
-                <div class="service-card">
-                    <div class="icon">🎤</div>
-                    <h2>Paneling & Speaking</h2>
-                    <p>Delivering compelling presentations and participating in industry panels to share expertise, insights, and perspectives on critical technology and business topics.</p>
-                    <ul class="service-features">
-                        <li>Conference keynote presentations</li>
-                        <li>Panel discussions and debates</li>
+            <!-- Service 2: Web Development Services -->
+            <div class="service-card">
+                <h3><span class="service-icon">🌐</span>Web Development Services</h3>
+                <p>Full-stack web development services creating responsive, scalable, and user-centric web applications.</p>
+                <div class="service-details">
+                    <strong>Expertise:</strong>
+                    <ul>
+                        <li>Frontend development (HTML, CSS, JavaScript, React, Vue.js)</li>
+                        <li>Backend development (Node.js, Python, Java)</li>
+                        <li>Database design and optimization</li>
+                        <li>API development and integration</li>
+                        <li>Performance optimization and SEO</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 3: AI & Automation -->
+            <div class="service-card">
+                <h3><span class="service-icon">🤖</span>AI & Automation</h3>
+                <p>Leverage artificial intelligence and automation to streamline processes and unlock new business opportunities.</p>
+                <div class="service-details">
+                    <strong>Solutions Include:</strong>
+                    <ul>
+                        <li>Machine learning model development</li>
+                        <li>Process automation and workflow optimization</li>
+                        <li>Natural language processing applications</li>
+                        <li>Data analytics and insights generation</li>
+                        <li>Intelligent system integration</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 4: Docker & Containerization -->
+            <div class="service-card">
+                <h3><span class="service-icon">🐳</span>Docker & Containerization</h3>
+                <p>Containerized application solutions for improved deployment, scalability, and infrastructure management.</p>
+                <div class="service-details">
+                    <strong>Services Offered:</strong>
+                    <ul>
+                        <li>Docker container design and optimization</li>
+                        <li>Kubernetes orchestration and management</li>
+                        <li>Microservices architecture implementation</li>
+                        <li>CI/CD pipeline development</li>
+                        <li>Container registry and deployment automation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 5: Data Protection & Compliance -->
+            <div class="service-card">
+                <h3><span class="service-icon">📋</span>Data Protection & Compliance</h3>
+                <p>Ensure your organization meets regulatory requirements and maintains the highest data protection standards.</p>
+                <div class="service-details">
+                    <strong>Compliance Areas:</strong>
+                    <ul>
+                        <li>GDPR compliance and implementation</li>
+                        <li>Data privacy assessments</li>
+                        <li>Regulatory compliance audits</li>
+                        <li>Data governance frameworks</li>
+                        <li>Incident response planning</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 6: Security Consulting -->
+            <div class="service-card">
+                <h3><span class="service-icon">👨‍💼</span>Security Consulting</h3>
+                <p>Expert security consulting to develop comprehensive strategies for organizational cybersecurity posture.</p>
+                <div class="service-details">
+                    <strong>Consulting Focus:</strong>
+                    <ul>
+                        <li>Security strategy development</li>
+                        <li>Risk assessment and management</li>
+                        <li>Security awareness training</li>
+                        <li>Vendor security evaluation</li>
+                        <li>Business continuity planning</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 7: Tech Advocacy -->
+            <div class="service-card">
+                <h3><span class="service-icon">📢</span>Tech Advocacy</h3>
+                <p>Promote technology adoption and digital transformation initiatives through strategic advocacy and community engagement.</p>
+                <div class="service-details">
+                    <strong>Activities Include:</strong>
+                    <ul>
+                        <li>Technology trend analysis and reporting</li>
+                        <li>Digital transformation consulting</li>
+                        <li>Community engagement and outreach</li>
+                        <li>Technology evangelism</li>
+                        <li>Industry partnership development</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 8: Paneling & Speaking -->
+            <div class="service-card">
+                <h3><span class="service-icon">🎤</span>Paneling & Speaking</h3>
+                <p>Engage audiences through impactful presentations, panel discussions, and keynote addresses on technology and innovation.</p>
+                <div class="service-details">
+                    <strong>Speaking Engagement:</strong>
+                    <ul>
+                        <li>Keynote presentations</li>
+                        <li>Panel discussions and moderating</li>
+                        <li>Conference speaking</li>
                         <li>Workshop facilitation</li>
-                        <li>Industry expert perspectives</li>
-                        <li>Thought leadership contributions</li>
-                        <li>Custom presentation development</li>
+                        <li>Industry forum participation</li>
                     </ul>
-                    <a href="contact.html" class="cta-button">Get Started</a>
                 </div>
+            </div>
 
-                <!-- Moderating & Facilitation Service -->
-                <div class="service-card">
-                    <div class="icon">👥</div>
-                    <h2>Moderating & Facilitation</h2>
-                    <p>Leading engaging discussions, managing conversations, and facilitating collaborative sessions that bring diverse perspectives together for meaningful dialogue and outcomes.</p>
-                    <ul class="service-features">
-                        <li>Round table discussions</li>
-                        <li>Community event facilitation</li>
-                        <li>Virtual and in-person meetings</li>
-                        <li>Conflict resolution and mediation</li>
+            <!-- Service 9: Moderating & Facilitation -->
+            <div class="service-card">
+                <h3><span class="service-icon">🎯</span>Moderating & Facilitation</h3>
+                <p>Expert facilitation of discussions, workshops, and collaborative sessions to drive productive outcomes and consensus.</p>
+                <div class="service-details">
+                    <strong>Facilitation Services:</strong>
+                    <ul>
+                        <li>Workshop facilitation and design</li>
+                        <li>Panel discussion moderation</li>
+                        <li>Collaborative session management</li>
+                        <li>Group decision-making facilitation</li>
                         <li>Stakeholder engagement sessions</li>
-                        <li>Team collaboration workshops</li>
                     </ul>
-                    <a href="contact.html" class="cta-button">Get Started</a>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="hero" style="margin-top: 4rem;">
-                <h2 style="color: #333; margin-bottom: 1rem;">Why Work With Me?</h2>
-                <div style="max-width: 800px; margin: 0 auto; text-align: left;">
-                    <p style="margin-bottom: 1rem;">
-                        With a passion for innovation and community building, I bring a unique perspective to every engagement. My background combines technical expertise with strong communication skills, enabling me to bridge gaps between complex topics and diverse audiences.
-                    </p>
-                    <p style="margin-bottom: 1rem;">
-                        Whether you're looking for a thought leader to inspire your team, an advocate to champion your technology initiatives, or a facilitator to guide important conversations, I'm committed to delivering value and making a positive impact.
-                    </p>
-                </div>
-            </section>
-        </div>
-    </main>
+        <section style="text-align: center; margin-top: 4rem;">
+            <h2 style="color: #667eea; margin-bottom: 1rem;">Ready to Get Started?</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.1rem;">Let's discuss how I can help transform your organization through technology and strategic consulting.</p>
+            <a href="contact.html" class="cta-button">Get in Touch</a>
+        </section>
+    </div>
 
     <footer>
         <p>&copy; 2026 Lele Byte Bot. All rights reserved.</p>
-        <p style="margin-top: 1rem;">
-            <a href="mailto:contact@lelebytebot.com">Email</a> | 
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a> | 
-            <a href="https://twitter.com" target="_blank">Twitter</a>
-        </p>
+        <p>Cybersecurity | Web Development | AI & Automation | Docker | Compliance | Consulting | Tech Advocacy</p>
     </footer>
 </body>
 </html>
