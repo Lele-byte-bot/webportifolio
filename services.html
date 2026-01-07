@@ -4,106 +4,285 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - Lele Byte Bot</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 2rem;
+            margin: 3rem 0;
         }
-        
+
         .service-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 30px;
+            background: white;
+            padding: 2rem;
             border-radius: 10px;
-            color: white;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #667eea;
         }
-        
+
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
         }
-        
-        .service-card h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
+
+        .service-card h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
-        
+
         .service-card p {
-            font-size: 0.95em;
-            line-height: 1.6;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
         }
-        
-        .services-section {
-            background: #f8f9fa;
-            padding: 60px 20px;
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
         }
-        
-        .services-section h1 {
+
+        .service-features li {
+            padding: 0.5rem 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-features li:before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
             text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            color: #333;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <section class="services-section">
-        <h1>Services</h1>
-        <div class="services-grid">
-            <!-- Existing Services -->
-            <div class="service-card">
-                <h3>Cybersecurity Consulting</h3>
-                <p>Comprehensive security assessments and strategies to protect your digital assets from evolving threats.</p>
-            </div>
-            
-            <div class="service-card">
-                <h3>Digital Transformation</h3>
-                <p>Guiding businesses through their digital evolution with innovative solutions and best practices.</p>
-            </div>
-            
-            <div class="service-card">
-                <h3>Tech Training & Workshops</h3>
-                <p>Hands-on training programs designed to build technical skills and digital literacy.</p>
-            </div>
-            
-            <div class="service-card">
-                <h3>Security Awareness</h3>
-                <p>Education and awareness programs to help organizations and individuals protect against cyber threats.</p>
-            </div>
-            
-            <div class="service-card">
-                <h3>ICT Solutions</h3>
-                <p>Innovative Information and Communication Technology solutions tailored to your business needs.</p>
-            </div>
-            
-            <div class="service-card">
-                <h3>Youth Empowerment Programs</h3>
-                <p>Programs focused on empowering young professionals and students in the tech industry.</p>
-            </div>
-            
-            <!-- New Services -->
-            <div class="service-card">
-                <h3>Tech Advocacy</h3>
-                <p>Promoting digital inclusion, youth empowerment in tech, and responsible technology use.</p>
-            </div>
-            
-            <div class="service-card">
-                <h3>Paneling & Speaking</h3>
-                <p>Guest speaker on cybersecurity, digital transformation, and youth advocacy topics.</p>
-            </div>
-            
-            <div class="service-card">
-                <h3>Moderating & Facilitation</h3>
-                <p>Leading workshops, discussions, and ICT awareness initiatives.</p>
-            </div>
+    <header>
+        <nav>
+            <div class="logo">Lele Byte Bot</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <h1>Professional Services</h1>
+                <p>Leveraging expertise in technology, community building, and thought leadership to drive meaningful conversations and foster innovation</p>
+            </section>
+
+            <section class="services-grid">
+                <!-- Tech Advocacy Service -->
+                <div class="service-card">
+                    <div class="icon">💡</div>
+                    <h2>Tech Advocacy</h2>
+                    <p>Championing innovation and best practices in technology to drive positive change within organizations and communities. Promoting inclusive tech culture and advocating for emerging technologies.</p>
+                    <ul class="service-features">
+                        <li>Technology trend analysis and insights</li>
+                        <li>Promoting inclusive tech practices</li>
+                        <li>Advocating for emerging technologies</li>
+                        <li>Building tech communities</li>
+                        <li>Knowledge sharing and mentorship</li>
+                        <li>Strategic technology recommendations</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Get Started</a>
+                </div>
+
+                <!-- Paneling & Speaking Service -->
+                <div class="service-card">
+                    <div class="icon">🎤</div>
+                    <h2>Paneling & Speaking</h2>
+                    <p>Delivering compelling presentations and participating in industry panels to share expertise, insights, and perspectives on critical technology and business topics.</p>
+                    <ul class="service-features">
+                        <li>Conference keynote presentations</li>
+                        <li>Panel discussions and debates</li>
+                        <li>Workshop facilitation</li>
+                        <li>Industry expert perspectives</li>
+                        <li>Thought leadership contributions</li>
+                        <li>Custom presentation development</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Get Started</a>
+                </div>
+
+                <!-- Moderating & Facilitation Service -->
+                <div class="service-card">
+                    <div class="icon">👥</div>
+                    <h2>Moderating & Facilitation</h2>
+                    <p>Leading engaging discussions, managing conversations, and facilitating collaborative sessions that bring diverse perspectives together for meaningful dialogue and outcomes.</p>
+                    <ul class="service-features">
+                        <li>Round table discussions</li>
+                        <li>Community event facilitation</li>
+                        <li>Virtual and in-person meetings</li>
+                        <li>Conflict resolution and mediation</li>
+                        <li>Stakeholder engagement sessions</li>
+                        <li>Team collaboration workshops</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Get Started</a>
+                </div>
+            </section>
+
+            <section class="hero" style="margin-top: 4rem;">
+                <h2 style="color: #333; margin-bottom: 1rem;">Why Work With Me?</h2>
+                <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+                    <p style="margin-bottom: 1rem;">
+                        With a passion for innovation and community building, I bring a unique perspective to every engagement. My background combines technical expertise with strong communication skills, enabling me to bridge gaps between complex topics and diverse audiences.
+                    </p>
+                    <p style="margin-bottom: 1rem;">
+                        Whether you're looking for a thought leader to inspire your team, an advocate to champion your technology initiatives, or a facilitator to guide important conversations, I'm committed to delivering value and making a positive impact.
+                    </p>
+                </div>
+            </section>
         </div>
-    </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Lele Byte Bot. All rights reserved.</p>
+        <p style="margin-top: 1rem;">
+            <a href="mailto:contact@lelebytebot.com">Email</a> | 
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a> | 
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+        </p>
+    </footer>
 </body>
 </html>
