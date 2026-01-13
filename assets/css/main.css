@@ -62,7 +62,7 @@
 --------------------------------------------------------------*/
 body {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   font-family: var(--default-font);
 }
 
@@ -1108,6 +1108,16 @@ section,
   font-size: 18px;
   font-weight: 400;
   margin: 0 0 6px;
+}
+
+.about .timeline-item h4 a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.about .timeline-item h4 a:hover {
+  color: var(--accent-color);
 }
 
 .about .timeline-item p {
@@ -2262,7 +2272,6 @@ section,
 
 .portfolio .portfolio-card .portfolio-img img {
   width: 100%;
-  height: auto;
   transition: transform 0.5s ease;
 }
 
@@ -2845,6 +2854,151 @@ section,
 
 .contact .contact-form .btn:hover {
   background-color: color-mix(in srgb, var(--surface-color), transparent 70%);
+}
+
+/*--------------------------------------------------------------
+# Advocacy Carousel Section
+--------------------------------------------------------------*/
+.advocacy-carousel {
+  margin-bottom: 3rem;
+}
+
+.advocacy-carousel h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--heading-color);
+}
+
+.advocacy-carousel .swiper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.advocacy-carousel .swiper-wrapper {
+  height: auto;
+}
+
+.advocacy-carousel .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 30%));
+}
+
+.advocacy-carousel .carousel-item {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.advocacy-carousel .carousel-item:hover {
+  transform: scale(1.02);
+}
+
+.advocacy-carousel .animated-object {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: pulse 2s infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.advocacy-carousel .animated-object i {
+  font-size: 4rem;
+  color: var(--contrast-color);
+  margin-bottom: 1rem;
+  display: block;
+  animation: bounce 1s ease-in-out infinite alternate;
+}
+
+.advocacy-carousel .animated-object h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--contrast-color);
+}
+
+.advocacy-carousel .animated-object p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.advocacy-carousel .swiper-button-next,
+.advocacy-carousel .swiper-button-prev {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--contrast-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-top: -20px;
+  transition: all 0.3s ease;
+}
+
+.advocacy-carousel .swiper-button-next:hover,
+.advocacy-carousel .swiper-button-prev:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.advocacy-carousel .swiper-button-next::after,
+.advocacy-carousel .swiper-button-prev::after {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .advocacy-carousel .swiper-slide {
+    min-height: 250px;
+  }
+
+  .advocacy-carousel .animated-object {
+    padding: 1.5rem;
+  }
+
+  .advocacy-carousel .animated-object i {
+    font-size: 3rem;
+  }
+
+  .advocacy-carousel .animated-object h4 {
+    font-size: 1.25rem;
+  }
 }
 
 /*--------------------------------------------------------------
